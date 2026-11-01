@@ -1,0 +1,223 @@
+{
+ "format": 1,
+ "id": "austin",
+ "packIndex": 0,
+ "display": "Austin",
+ "countryKey": "UnitedStates",
+ "countryNameID": "PSG_10001070",
+ "hemisphere": "North",
+ "donorScene": "Phoenix",
+ "climateFrom": "Phoenix",
+ "ambienceFrom": "Phoenix",
+ "driverStatsFrom": "Phoenix",
+ "pitGarageSide": "left",
+ "frame": {
+  "crs": "EPSG:32614",
+  "originE": 631035.0,
+  "originN": 3334167.0,
+  "yBase": 153.944
+ },
+ "terrain": {
+  "file": "terrain.bin",
+  "header": "terrain.json"
+ },
+ "ortho": {
+  "file": "ortho.jpg",
+  "bounds": [
+   -770.0,
+   -587.0,
+   1853.0,
+   1268.0
+  ]
+ },
+ "features": "features.json",
+ "loading": "loading.png",
+ "credits": "credits.md",
+ "layouts": [
+  {
+   "key": "GP",
+   "letter": "A",
+   "name": "Grand Prix",
+   "built": true,
+   "lengthM": 5502.6,
+   "paths": "layout_GP.txt",
+   "width": "width_GP.csv",
+   "minimap": "minimap_GP.png",
+   "corners": "corners_GP.csv",
+   "minimapBounds": [
+    -429.5,
+    -246.7,
+    1512.2,
+    927.7
+   ],
+   "data": {
+    "Track Length": {
+     "value": 3.426,
+     "reason": "5,513 m (official lap length) / 1,609.344 = 3.426 miles; the game stores miles (CircuitManager.cs:46). The traced centreline measures 5503 m."
+    },
+    "Safety Car Flag Chance": {
+     "value": 0.4,
+     "reason": "Phoenix is 0.50. COTA has had a safety car in roughly 4 of its ~11 races (about 0.35 from memory of the race history, not fetched), and lap-1 turn-1 incidents are the usual cause; 0.4 keeps it a little under Phoenix. Override in the manifest."
+    },
+    "Virtual Safety Car Chance": {
+     "value": 0.3,
+     "reason": "Phoenix is 0.00 and the Locations table was not available offline to compare other rows. the wide asphalt run-offs at COTA mean many incidents are cleared under a VSC rather than a full safety car, so a modest 0.3 (below the 0.4 safety car chance). Override in the manifest."
+    },
+    "Track Rubber Modifier": {
+     "value": 1.0,
+     "reason": "Neutral 1.0, same as Phoenix. Nothing in the open data says COTA rubbers in faster or slower than a typical permanent circuit."
+    },
+    "Minimap Rotation": {
+     "value": 0,
+     "reason": "The minimap sprite is generated north-up in pack-local x/z, so no rotation is needed (MinimapWidget.cs:187 adds minimapRotation to the finish-line angle)."
+    },
+    "Minimap Axis": {
+     "value": "x",
+     "reason": "Axis \"x\" maps the sprite width to world x and its height to world z (MinimapWidget.SetTrackDimensions, MinimapWidget.cs:161-173); the pack frame is x = east, z = north."
+    },
+    "TS": {
+     "value": 5,
+     "reason": "Neutral weight is 4 (Car.cs:327). The longest straight measures 1125 m on the traced centreline (the ~1.2 km back straight; the pit straight is 415, 320 m): 4 x 1125/900 = 5.0, rounded to 5."
+    },
+    "ACC": {
+     "value": 4,
+     "reason": "Neutral 4 = one third of the corners being low-speed. The corner-finder emulator finds 22 corners, 8 of them Low (T1, T11, T12 hairpins and the stadium section), so traction exits matter about as much as average: 4 x 8/7.3 = 4.4 -> 4."
+    },
+    "DEC": {
+     "value": 4,
+     "reason": "Braking weight counts hard stops: corners entered after a straight of at least 250 m. The emulator finds 5 (T1, the T11 hairpin after the 1.2 km straight, T12 and others); 4 x 5/5 = 4.0 -> 4 (5 such zones taken as neutral)."
+    },
+    "HSC": {
+     "value": 6,
+     "reason": "The three corner weights share a total of 12 (neutral 4 each) in proportion to corner length by emulated speed class: high-speed corners are 48% of corner length (11 corners including the flowing T3-T6 esses and T17-T18): 12 x 0.48 = 5.8 -> 6."
+    },
+    "MSC": {
+     "value": 2,
+     "reason": "The three corner weights share a total of 12 (neutral 4 each) in proportion to corner length by emulated speed class: medium-speed corners are 18% of corner length (3 corners): 12 x 0.18 = 2.2 -> 2."
+    },
+    "LSC": {
+     "value": 4,
+     "reason": "The three corner weights share a total of 12 (neutral 4 each) in proportion to corner length by emulated speed class: low-speed corners are 33% of corner length (8 corners): 12 x 0.33 = 4.0 -> 4."
+    },
+    "First Tyre Option": {
+     "value": "Soft",
+     "reason": "The softest of the three compounds on offer; COTA is a medium-to-high energy track with a hot Texas climate, so the softest option is Soft (not SuperSoft). Same first option as Phoenix."
+    },
+    "Second Tyre Option": {
+     "value": "Medium",
+     "reason": "Middle compound, the usual race-day workhorse."
+    },
+    "Third Tyre Option": {
+     "value": "Hard",
+     "reason": "Hardest compound the game offers. COTA is abrasive with sustained lateral loads through the esses, which favours the harder end of the range."
+    },
+    "Tyre Wear Rate": {
+     "value": "High",
+     "reason": "Phoenix is Low. the sustained high-speed lateral loading at COTA (the T3-T6 esses and the fast T16-T18 complex) and abrasive surface make tyre wear above average for a permanent circuit: High."
+    },
+    "Fuel Burn Rate": {
+     "value": "Medium",
+     "reason": "A 5.5 km lap with 34% of its length on straights over 250 m is slightly fuel-hungry per lap, but the game scales burn by lap length already; Medium, same as Phoenix."
+    },
+    "Travel Cost": {
+     "value": 0.075,
+     "reason": "Millions, same scale as the Locations table. Phoenix, the other US venue, is 0.075 (75,000, scene-Phoenix.txt CIRCUIT DATA ROW); both are US venues so the same value is used."
+    }
+   }
+  },
+  {
+   "key": "NAT",
+   "letter": "B",
+   "name": "National",
+   "built": false
+  },
+  {
+   "key": "CLUB",
+   "letter": "C",
+   "name": "Club",
+   "built": false
+  }
+ ],
+ "officialLengthM": 5513.0,
+ "location": {
+  "lat": 30.13176,
+  "lon": -97.63965
+ },
+ "notes": [
+  "Cars often run wide at T1 on lap 1.",
+  "The esses (T3\u2013T6) are flowing.",
+  "The back straight is about 1.2 km.",
+  "Real T1 colours: red/white kerbs, red-white-blue striped painted run-off, a very wide T1 apron."
+ ],
+ "views": [
+  {
+   "name": "stands-t12-t15",
+   "kind": "stand",
+   "turns": [
+    12,
+    13,
+    14,
+    15
+   ]
+  },
+  {
+   "name": "infield-t16",
+   "kind": "blocks",
+   "turns": [
+    16,
+    18
+   ]
+  },
+  {
+   "name": "start-grandstand",
+   "kind": "straight-stand"
+  },
+  {
+   "name": "tower",
+   "kind": "tower"
+  },
+  {
+   "name": "pit-building",
+   "kind": "pit"
+  },
+  {
+   "name": "horizon-low",
+   "kind": "horizon",
+   "from": "low"
+  },
+  {
+   "name": "horizon-high",
+   "kind": "horizon",
+   "from": "high"
+  },
+  {
+   "name": "t1",
+   "kind": "turn",
+   "turns": [
+    1
+   ]
+  }
+ ],
+ "generator": "trackbuild 1.0",
+ "generated": "2026-10-28",
+ "sources": [
+  {
+   "name": "OpenStreetMap",
+   "url": "https://www.openstreetmap.org/copyright",
+   "licence": "ODbL 1.0",
+   "usedFor": "centreline, pit lane, surface width polygons, run-off/kerb colours, grandstands, buildings, barriers, water, tower"
+  },
+  {
+   "name": "USGS 3D Elevation Program (3DEP) lidar DEM",
+   "url": "https://www.usgs.gov/3d-elevation-program",
+   "licence": "Public domain (US Government work)",
+   "usedFor": "terrain heightfield and track heights (1 m)"
+  },
+  {
+   "name": "USGS NAIP imagery",
+   "url": "https://www.usgs.gov/centers/eros/science/usgs-eros-archive-aerial-photography-national-agriculture-imagery-program-naip",
+   "licence": "Public domain (US Government work, USDA FSA NAIP)",
+   "usedFor": "orthophoto draped on the terrain, loading screen"
+  }
+ ]
+}

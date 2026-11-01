@@ -1,0 +1,460 @@
+{
+ "format": 1,
+ "id": "monaco",
+ "packIndex": 1,
+ "display": "Monte Carlo",
+ "countryKey": "Monaco",
+ "countryNameID": "PSG_10000999",
+ "hemisphere": "North",
+ "donorScene": "Cape Town",
+ "climateFrom": "Cape Town",
+ "ambienceFrom": "Cape Town",
+ "driverStatsFrom": "Cape Town",
+ "pitGarageSide": "right",
+ "frame": {
+  "crs": "EPSG:32632",
+  "originE": 372864.0,
+  "originN": 4843655.0,
+  "yBase": 2.713
+ },
+ "terrain": {
+  "file": "terrain.bin",
+  "header": "terrain.json"
+ },
+ "ortho": {
+  "file": "ortho.jpg",
+  "bounds": [
+   -404.0,
+   -699.0,
+   1146.0,
+   1064.0
+  ]
+ },
+ "features": "features.json",
+ "loading": "loading.png",
+ "credits": "credits.md",
+ "layouts": [
+  {
+   "key": "GP",
+   "letter": "A",
+   "name": "Grand Prix",
+   "built": true,
+   "lengthM": 3322.9,
+   "tunnels": [
+    {
+     "name": "Circuit de Monaco",
+     "s0": 1410.6,
+     "s1": 1428.5
+    },
+    {
+     "name": "Boulevard Louis II",
+     "s0": 1513.2,
+     "s1": 1874.9
+    }
+   ],
+   "paths": "layout_GP.txt",
+   "width": "width_GP.csv",
+   "minimap": "minimap_GP.png",
+   "corners": "corners_GP.csv",
+   "minimapBounds": [
+    -63.3,
+    -358.8,
+    805.0,
+    723.7
+   ],
+   "data": {
+    "Track Length": {
+     "value": 2.074,
+     "reason": "3,337 m (official lap length) / 1,609.344 = 2.074 miles; the game stores miles (CircuitManager.cs:46). The traced centreline measures 3323 m."
+    },
+    "Safety Car Flag Chance": {
+     "value": 0.4,
+     "reason": "Default 0.4 (Phoenix is 0.50): not researched for Monte Carlo. Override in the pack config (\"datarow\") or the manifest."
+    },
+    "Virtual Safety Car Chance": {
+     "value": 0.3,
+     "reason": "Default 0.3 (Phoenix is 0.00): not researched for Monte Carlo. Override in the pack config (\"datarow\") or the manifest."
+    },
+    "Track Rubber Modifier": {
+     "value": 1.0,
+     "reason": "Neutral 1.0, same as Phoenix. Nothing in the open data says whether rubber goes down faster or slower at Monte Carlo than at a typical circuit."
+    },
+    "Minimap Rotation": {
+     "value": 0,
+     "reason": "The minimap sprite is generated north-up in pack-local x/z, so no rotation is needed (MinimapWidget.cs:187 adds minimapRotation to the finish-line angle)."
+    },
+    "Minimap Axis": {
+     "value": "x",
+     "reason": "Axis \"x\" maps the sprite width to world x and its height to world z (MinimapWidget.SetTrackDimensions, MinimapWidget.cs:161-173); the pack frame is x = east, z = north."
+    },
+    "TS": {
+     "value": 1,
+     "reason": "Neutral weight is 4 (Car.cs:327). The longest straight measures 155 m on the traced centreline (the next longest:  m): 4 x 155/900 = 0.7, rounded to 1."
+    },
+    "ACC": {
+     "value": 6,
+     "reason": "Neutral 4 = one third of the corners being low-speed. The corner-finder emulator finds 18 corners, 12 of them Low, so traction exits matter about as much as average: 4 x 12/6.0 = 8.0 -> 6."
+    },
+    "DEC": {
+     "value": 5,
+     "reason": "Braking weight counts hard stops: corners entered after a straight of at least 250 m. The emulator finds 6; 4 x 6/5 = 4.8 -> 5 (5 such zones taken as neutral)."
+    },
+    "HSC": {
+     "value": 1,
+     "reason": "The three corner weights share a total of 12 (neutral 4 each) in proportion to corner length by emulated speed class: high-speed corners are 0% of corner length (0 corners): 12 x 0.00 = 0.0 -> 1."
+    },
+    "MSC": {
+     "value": 4,
+     "reason": "The three corner weights share a total of 12 (neutral 4 each) in proportion to corner length by emulated speed class: medium-speed corners are 32% of corner length (6 corners): 12 x 0.32 = 3.8 -> 4."
+    },
+    "LSC": {
+     "value": 6,
+     "reason": "The three corner weights share a total of 12 (neutral 4 each) in proportion to corner length by emulated speed class: low-speed corners are 68% of corner length (12 corners): 12 x 0.68 = 8.2 -> 6."
+    },
+    "First Tyre Option": {
+     "value": "Soft",
+     "reason": "The softest of the three compounds on offer (default; not researched for Monte Carlo). Same first option as Phoenix."
+    },
+    "Second Tyre Option": {
+     "value": "Medium",
+     "reason": "Middle compound, the usual race-day workhorse."
+    },
+    "Third Tyre Option": {
+     "value": "Hard",
+     "reason": "Hardest compound the game offers (default; not researched for Monte Carlo)."
+    },
+    "Tyre Wear Rate": {
+     "value": "Medium",
+     "reason": "Default Medium (Phoenix is Low): not researched for Monte Carlo."
+    },
+    "Fuel Burn Rate": {
+     "value": "Medium",
+     "reason": "A 3.3 km lap with 0% of its length on straights over 250 m is slightly fuel-hungry per lap, but the game scales burn by lap length already; Medium, same as Phoenix."
+    },
+    "Travel Cost": {
+     "value": 0.075,
+     "reason": "Millions, same scale as the Locations table. Default 0.075 (Phoenix, scene-Phoenix.txt CIRCUIT DATA ROW): travel cost for Monte Carlo not researched."
+    }
+   }
+  }
+ ],
+ "officialLengthM": 3337.0,
+ "location": {
+  "lat": 43.73503,
+  "lon": 7.42127
+ },
+ "notes": [],
+ "views": [
+  {
+   "name": "harbour-from-stands",
+   "kind": "point",
+   "targetAbove": 3.0,
+   "fov": 60,
+   "subject": "fl1: harbour from the stands above Tabac and the pool, yachts below (camera on the tabac-pool stand, under its roof, high row)",
+   "target": [
+    240.0,
+    30.0
+   ],
+   "pos": [
+    26.0,
+    105.2
+   ],
+   "posAbove": 12.88
+  },
+  {
+   "name": "harbour-front",
+   "kind": "point",
+   "posAbove": 5.0,
+   "targetAbove": 1.5,
+   "fov": 55,
+   "subject": "fl3: 5 m up in the gap between pool-west and tabac-pool stands, west of the pool run, looking north along the harbour front: track, barrier, yachts and the stand in frame",
+   "pos": [
+    36.0,
+    42.0
+   ],
+   "target": [
+    46.0,
+    130.0
+   ]
+  },
+  {
+   "name": "t9-hairpin-above",
+   "kind": "point",
+   "posAbove": 28.0,
+   "targetAbove": 0.0,
+   "fov": 60,
+   "subject": "fl2: Fairmont hairpin (game corner 9 = Kyle T6) from above, hotel side, hillside behind",
+   "pos": [
+    712.0,
+    520.0
+   ],
+   "target": [
+    672.0,
+    588.0
+   ]
+  },
+  {
+   "name": "tunnel-entrance",
+   "kind": "point",
+   "posAbove": 6.0,
+   "targetAbove": -5.0,
+   "fov": 55,
+   "subject": "tunnel entrance from the Portier side (shell and lamps); target lowered 5 m below the raised terrain roof to the portal road",
+   "pos": [
+    746.0,
+    632.0
+   ],
+   "target": [
+    740.0,
+    575.0
+   ]
+  },
+  {
+   "name": "start-straight",
+   "kind": "start"
+  },
+  {
+   "name": "t1",
+   "kind": "turn",
+   "turns": [
+    1
+   ]
+  },
+  {
+   "name": "pit-building",
+   "kind": "pit"
+  },
+  {
+   "name": "tower",
+   "kind": "tower",
+   "osmIds": [
+    "way/94399524"
+   ],
+   "fov": 50,
+   "subject": "Le Mirabeau (OSM way 94399524, 81 m, 40 m from the track above the Fairmont hairpin) framed with the track; Monaco has no observation tower; the Casino and Fairmont footprints are skipped as overlapping the road, so they cannot be the landmark; a yacht must never be"
+  },
+  {
+   "name": "horizon-low",
+   "kind": "horizon",
+   "from": "low"
+  },
+  {
+   "name": "horizon-high",
+   "kind": "horizon",
+   "from": "high"
+  }
+ ],
+ "harbour": "harbour.json",
+ "cornerNames": [
+  {
+   "corner": 1,
+   "name": "Sainte D\u00e9vote",
+   "kyle": 1,
+   "fia": [
+    1
+   ]
+  },
+  {
+   "corner": 2,
+   "name": "Beau Rivage dogleg",
+   "kyle": 2,
+   "fia": [
+    2
+   ]
+  },
+  {
+   "corner": 3,
+   "name": "Massenet (entry)",
+   "kyle": 3,
+   "fia": [
+    3
+   ]
+  },
+  {
+   "corner": 4,
+   "name": "Massenet (middle)",
+   "kyle": 3,
+   "fia": [
+    3
+   ]
+  },
+  {
+   "corner": 5,
+   "name": "Massenet (exit)",
+   "kyle": 3,
+   "fia": [
+    3
+   ]
+  },
+  {
+   "corner": 6,
+   "name": "Casino Square",
+   "kyle": 4,
+   "fia": [
+    4
+   ]
+  },
+  {
+   "corner": 7,
+   "name": "Mirabeau Haute",
+   "kyle": 5,
+   "fia": [
+    5
+   ]
+  },
+  {
+   "corner": 8,
+   "name": "Hairpin entry (left flick)",
+   "kyle": 6,
+   "fia": [
+    6
+   ]
+  },
+  {
+   "corner": 9,
+   "name": "Grand Hotel (Fairmont) hairpin",
+   "kyle": 6,
+   "fia": [
+    6
+   ]
+  },
+  {
+   "corner": 10,
+   "name": "Mirabeau Bas",
+   "kyle": 7,
+   "fia": [
+    7
+   ]
+  },
+  {
+   "corner": 11,
+   "name": "Portier",
+   "kyle": 8,
+   "fia": [
+    8
+   ]
+  },
+  {
+   "corner": 12,
+   "name": "Nouvelle Chicane (left-right)",
+   "kyle": 10,
+   "fia": [
+    10
+   ]
+  },
+  {
+   "corner": 13,
+   "name": "Nouvelle Chicane exit (left)",
+   "kyle": 11,
+   "fia": [
+    11
+   ]
+  },
+  {
+   "corner": 14,
+   "name": "Tabac",
+   "kyle": 12,
+   "fia": [
+    12
+   ]
+  },
+  {
+   "corner": 15,
+   "name": "Piscine entry (left-right)",
+   "kyle": 13,
+   "fia": [
+    13,
+    14
+   ]
+  },
+  {
+   "corner": 16,
+   "name": "Piscine exit (right-left)",
+   "kyle": 15,
+   "fia": [
+    15,
+    16
+   ]
+  },
+  {
+   "corner": 17,
+   "name": "Short-straight flick (left)",
+   "kyle": 16,
+   "fia": [
+    17
+   ]
+  },
+  {
+   "corner": 18,
+   "name": "La Rascasse",
+   "kyle": 17,
+   "fia": [
+    18
+   ]
+  },
+  {
+   "corner": 19,
+   "name": "Anthony Nogh\u00e8s",
+   "kyle": 18,
+   "fia": [
+    19
+   ]
+  },
+  {
+   "corner": 20,
+   "name": "Main-straight kink",
+   "kyle": 19,
+   "fia": []
+  }
+ ],
+ "generator": "trackbuild 1.0",
+ "generated": "2026-10-30",
+ "buildWarnings": [
+  "IGN RGE ALTI: 839967 of 2732650 pixels (30.74 %) had no data and were filled from Copernicus GLO-30 (30 m surface model, no vertical shift applied; median IGN-minus-Copernicus along the seam is -3.43 m); in the pack these are the sea and any gaps: coarse and not lidar",
+  "Copernicus GLO-30 is 30 m and a surface model (buildings/trees included): only usable as a fallback or gap fill",
+  "road width: 27% of the lap comes from the lanes / default fallback (limit 25%): the profile there is a guess, not a measurement",
+  "road width: 36% of the lap has no raceway polygon and uses the barrier fallback",
+  "road width: 37% of the lap has no raceway polygon and uses the barrier1 fallback",
+  "road width: 14% of the lap has no raceway polygon and uses the lanes fallback",
+  "road width: 13% of the lap has no raceway polygon and uses the default fallback",
+  "grandstands: 3 hand-placed from trackcfg hand_stands (hand/tabac-pool, hand/pool-west, hand/pool-quay), not from OSM",
+  "pit lane: ways 850261588 and 1388331347 do not meet (191 m apart): bridged along the race line for 195 m, 10 m to the side of the track (pit_bridge_offset_m)",
+  "pit lane: no straight stretch of 240 m in the mapped lane (longest 56 m): the lane is drawn as a straight chord of its 260 m window, shifted 11 m towards the track side; it departs from the mapped line by up to 19.4 m; clearance to the race line: lane axis 9.1 m (min 9), garage paths 7.6 m (min 7)",
+  "generated pit building: trimmed to keep clear of the race line: {'from_m': 263, 'to_m': 80, 'depth_m': 6.6, 'free_depth_min_m': -11.7}"
+ ],
+ "sources": [
+  {
+   "name": "OpenStreetMap",
+   "url": "https://www.openstreetmap.org/copyright",
+   "licence": "ODbL 1.0",
+   "usedFor": "centreline, pit lane, surface width polygons, run-off/kerb colours, grandstands, buildings, barriers, water, tower"
+  },
+  {
+   "name": "IGN RGE ALTI 1 m (Geoplateforme)",
+   "url": "https://cartes.gouv.fr/rechercher-une-donnee/dataset/IGNF_RGE-ALTI",
+   "licence": "Licence Ouverte / Etalab 2.0",
+   "usedFor": "terrain heightfield and track heights (1 m)",
+   "licenceUrl": "https://www.etalab.gouv.fr/wp-content/uploads/2018/11/open-licence.pdf",
+   "attribution": "Source : IGN, RGE ALTI (G\u00e9oplateforme), Licence Ouverte / Etalab 2.0",
+   "resolution": "1 m (RGE ALTI HIGHRES, lidar/photogrammetry-derived DTM)"
+  },
+  {
+   "name": "Copernicus DEM GLO-30",
+   "url": "https://spacedata.copernicus.eu/collections/copernicus-digital-elevation-model",
+   "licence": "Copernicus DEM licence (free, worldwide, with attribution)",
+   "usedFor": "terrain heights where the primary DEM has no data (coarse, 30 m, a surface model)",
+   "licenceUrl": "https://spacedata.copernicus.eu/collections/copernicus-digital-elevation-model#Licencing",
+   "attribution": "Produced using Copernicus WorldDEM-30 (c) DLR e.V. 2010-2014 and (c) Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved.",
+   "resolution": "30 m (1 arc-second), DSM"
+  },
+  {
+   "name": "IGN BD ORTHO (Geoplateforme)",
+   "url": "https://cartes.gouv.fr/rechercher-une-donnee/dataset/IGNF_BD-ORTHO",
+   "licence": "Licence Ouverte / Etalab 2.0",
+   "usedFor": "orthophoto draped on the terrain, loading screen",
+   "licenceUrl": "https://www.etalab.gouv.fr/wp-content/uploads/2018/11/open-licence.pdf",
+   "attribution": "Source : IGN, BD ORTHO (G\u00e9oplateforme), Licence Ouverte / Etalab 2.0",
+   "resolution": "0.2-0.5 m (BD ORTHO)"
+  }
+ ]
+}

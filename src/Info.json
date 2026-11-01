@@ -1,0 +1,9 @@
+{
+  "Id": "RealTracks",
+  "DisplayName": "Real Tracks",
+  "Author": "Kyle & Claude",
+  "Version": "1.0.0",
+  "ManagerVersion": "0.27.0",
+  "AssemblyName": "RealTracks.dll",
+  "EntryMethod": "RealTracks.Main.Load"
+}
